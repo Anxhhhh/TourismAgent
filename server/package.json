@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "express": "^5.2.1",
-    "exprss": "^0.0.1-security"
+    "exprss": "^0.0.1-security",
+    "mongoose": "^9.4.1"
   }
 }
