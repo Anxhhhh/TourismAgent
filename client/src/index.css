@@ -1,58 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-/* CSS @import rules must come before all other rules */
-
-:root {
-  color-scheme: dark;
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-* {
-  box-sizing: border-box;
+:root {
+  --font-primary: 'Outfit', sans-serif;
+  --color-teal-dark: #0d2e35;
+  --color-teal-mid: #0e4a56;
+  --color-teal-accent: #1a8a9a;
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background-color: #0d1419;
-  color: #dde3eb;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Material Symbols Icon Font */
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-}
-
-/* Glassmorphism utility */
-.glass-panel {
-  background: rgba(47, 54, 59, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-/* Editorial drop shadow */
-.editorial-shadow {
-  box-shadow: 0 20px 40px rgba(5, 11, 16, 0.4);
-}
-
-/* Primary text glow effect */
-.text-glow {
-  text-shadow: 0 0 20px rgba(166, 204, 221, 0.3);
-}
-
-/* Selection highlight */
-::selection {
-  background: rgba(166, 204, 221, 0.3);
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #0d1419;
-}
-::-webkit-scrollbar-thumb {
-  background: #2f363b;
-  border-radius: 10px;
+  font-family: var(--font-primary);
+  background-color: transparent;
+  overflow-x: hidden;
 }
