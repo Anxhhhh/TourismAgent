@@ -1,83 +1,78 @@
 import React, { useState, useEffect } from 'react'
+import './Navbar.css'
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [activeLink, setActiveLink] = useState('Home')
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navLinks = ['Home', 'About', 'Discover', 'Places', 'Contact']
+  const navLinks = [
+    { label: 'Home', href: '#hero' },
+    { label: 'About', href: '#about' },
+    { label: 'Discover', href: '#discover' },
+    { label: 'Places', href: '#destinations' },
+    { label: 'Contact', href: '#contact' },
+  ]
 
   return (
-    <nav
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        zIndex: 50,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '20px 40px',
-        fontFamily: "'Outfit', sans-serif",
-        background: scrolled ? 'rgba(9,34,42,0.88)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(10px)' : 'none',
-        transition: 'background 0.4s ease',
-      }}
-    >
-      {/* Logo */}
-      <a
-        href="#"
-        style={{
-          color: '#fff',
-          fontSize: '16px',
-          fontWeight: 400,
-          letterSpacing: '0.18em',
-          textTransform: 'uppercase',
-          textDecoration: 'none',
-          fontFamily: "'Outfit', sans-serif",
-        }}
-      >
-        Travel
-      </a>
+    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+      <div className="navbar__inner">
+        {/* Logo */}
+        <a href="#hero" className="navbar__logo">
+          <span className="navbar__logo-icon">✦</span>
+          Celestial<span className="navbar__logo-accent">Voyager</span>
+        </a>
 
-      {/* Nav Links */}
-      <ul
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '40px',
-          listStyle: 'none',
-          margin: 0,
-          padding: 0,
-        }}
-      >
-        {navLinks.map((link, i) => (
-          <li key={link}>
-            <a
-              href="#"
-              style={{
-                fontSize: '14px',
-                fontWeight: 400,
-                fontFamily: "'Outfit', sans-serif",
-                textDecoration: 'none',
-                color: i === 0 ? '#fff' : 'rgba(255,255,255,0.7)',
-                borderBottom: i === 0 ? '2px solid #fff' : 'none',
-                paddingBottom: i === 0 ? '2px' : '0',
-                transition: 'color 0.2s',
-              }}
-              onMouseEnter={e => { if (i !== 0) e.currentTarget.style.color = '#fff' }}
-              onMouseLeave={e => { if (i !== 0) e.currentTarget.style.color = 'rgba(255,255,255,0.7)' }}
-            >
-              {link}
-            </a>
-          </li>
+        {/* Desktop Links */}
+        <ul className="navbar__links">
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                className={`navbar__link ${activeLink === link.label ? 'navbar__link--active' : ''}`}
+                onClick={() => setActiveLink(link.label)}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <a href="#discover" className="navbar__cta">
+          Start Journey
+        </a>
+
+        {/* Mobile burger */}
+        <button
+          className={`navbar__burger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span /><span /><span />
+        </button>
+      </div>
+
+      {/* Mobile Dropdown */}
+      <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
+        {navLinks.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            className="navbar__mobile-link"
+            onClick={() => { setActiveLink(link.label); setMenuOpen(false) }}
+          >
+            {link.label}
+          </a>
         ))}
-      </ul>
+        <a href="#discover" className="navbar__mobile-cta">Start Journey</a>
+      </div>
     </nav>
   )
 }
