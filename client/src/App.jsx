@@ -5,6 +5,7 @@ import FeaturesSection from './components/FeaturesSection/FeaturesSection'
 import DestinationsSection from './components/DestinationsSection/DestinationsSection'
 import AISection from './components/AISection/AISection'
 import Footer from './components/Footer/Footer'
+import ChatWidget from './components/ChatWidget/ChatWidget'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <AISection />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   )
 }
