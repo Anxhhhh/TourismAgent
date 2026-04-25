@@ -1,5 +1,4 @@
 import React from 'react'
-import './DestinationsSection.css'
 
 const destinations = [
   {
@@ -65,17 +64,17 @@ const StarIcon = () => (
 )
 
 const DestinationsSection = () => (
-  <section id="destinations" className="destinations section">
-    <div className="container">
-      <div className="destinations__header">
+  <section id="destinations" className="bg-black py-[100px] lg:py-[140px]">
+    <div className="max-w-[1600px] mx-auto px-4 md:px-6">
+      <div className="flex flex-wrap items-end justify-between gap-6 mb-[52px]">
         <div>
           <span className="section-label">Top Destinations</span>
-          <h2 className="destinations__title">
+          <h2 className="text-[clamp(34px,4.5vw,58px)] font-bold leading-[1.15] text-white mt-2">
             Handpicked for<br />
             <span className="gradient-text">your next adventure</span>
           </h2>
         </div>
-        <a href="#" className="destinations__view-all">
+        <a href="#" className="group inline-flex items-center gap-2 text-[13.5px] font-medium text-teal-300 whitespace-nowrap pb-2 border-b border-teal-300/30 hover:text-teal-200 hover:gap-3 hover:border-teal-300 transition-all duration-200">
           View all destinations
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -83,34 +82,51 @@ const DestinationsSection = () => (
         </a>
       </div>
 
-      <div className="destinations__grid">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 sm:gap-6">
         {destinations.map((d, i) => (
-          <article key={d.name} className="dest-card glass-card">
+          <article 
+            key={d.name} 
+            className="group glass-card overflow-hidden transition-all duration-300 ease-in-out cursor-pointer rounded-2xl hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_24px_60px_rgba(0,0,0,0.5)]"
+          >
             {/* Visual area with gradient */}
             <div
-              className="dest-card__visual"
+              className="relative h-[220px] flex items-end p-4 overflow-hidden"
               style={{ background: d.gradient }}
             >
-              <span className="dest-card__emoji">{d.emoji}</span>
-              <span className="dest-card__tag">{d.tag}</span>
+              {/* Gradient dark overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+              
+              <span className="absolute top-1/2 left-1/2 text-[60px] -translate-x-1/2 -translate-y-[56%] select-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-transform duration-400 ease-in-out group-hover:scale-110 group-hover:-translate-y-[62%]">
+                {d.emoji}
+              </span>
+              
+              <span className="absolute bottom-[14px] left-[14px] z-10 text-[10.5px] font-semibold tracking-[0.1em] uppercase text-white/90 bg-white/15 border border-white/25 backdrop-blur-md px-2.5 py-1 rounded-full pointer-events-none">
+                {d.tag}
+              </span>
             </div>
 
             {/* Info */}
-            <div className="dest-card__info">
-              <div className="dest-card__name-row">
+            <div className="p-5 pb-[18px] flex flex-col gap-3.5">
+              <div className="flex items-start justify-between gap-3">
                 <div>
-                  <h3 className="dest-card__name">{d.name}</h3>
-                  <p className="dest-card__country">{d.country}</p>
+                  <h3 className="text-[19px] font-semibold text-white mb-1">
+                    {d.name}
+                  </h3>
+                  <p className="text-[13.5px] font-light text-white/45">
+                    {d.country}
+                  </p>
                 </div>
-                <div className="dest-card__rating">
+                <div className="flex items-center gap-1 text-[14px] font-semibold text-gold-400 whitespace-nowrap mt-0.5">
                   <StarIcon />
                   <span>{d.rating}</span>
                 </div>
               </div>
 
-              <div className="dest-card__footer">
-                <span className="dest-card__trips">{d.trips} trips planned</span>
-                <a href="#" className="dest-card__explore">
+              <div className="flex items-center justify-between">
+                <span className="text-[13px] text-white/40">
+                  {d.trips} trips planned
+                </span>
+                <a href="#" className="text-[14.5px] font-medium text-teal-300 transition-all duration-200 hover:text-teal-200 hover:tracking-wide">
                   Explore →
                 </a>
               </div>

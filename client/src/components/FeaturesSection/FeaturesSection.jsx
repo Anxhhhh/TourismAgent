@@ -1,5 +1,4 @@
 import React from 'react'
-import './FeaturesSection.css'
 
 const features = [
   {
@@ -45,26 +44,35 @@ const features = [
 ]
 
 const FeaturesSection = () => (
-  <section id="discover" className="features section">
-    <div className="container">
-      <div className="features__header">
+  <section id="discover" className="bg-gradient-to-b from-teal-900 to-black py-[100px] lg:py-[140px]">
+    <div className="max-w-[1600px] mx-auto px-4 md:px-6">
+      <div className="text-center max-w-[680px] mx-auto mb-16 flex flex-col items-center">
         <span className="section-label">Why Choose Us</span>
-        <h2 className="features__title">
+        <h2 className="text-[clamp(36px,4.5vw,60px)] font-bold leading-tight mb-[18px] text-white">
           Travel smarter,<br />
           <span className="gradient-text">experience deeper</span>
         </h2>
-        <p className="features__subtitle">
+        <p className="text-[17px] font-light leading-[1.8] text-white/50">
           From AI-generated itineraries to on-ground expert guidance — we handle the planning
           so you can focus on the memories.
         </p>
       </div>
 
-      <div className="features__grid">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-7">
         {features.map((f, i) => (
-          <div key={f.title} className="features__card glass-card" style={{ animationDelay: `${i * 0.1}s` }}>
-            <div className="features__card-icon">{f.icon}</div>
-            <h3 className="features__card-title">{f.title}</h3>
-            <p className="features__card-desc">{f.desc}</p>
+          <div 
+            key={f.title} 
+            className="group relative overflow-hidden glass-card flex flex-col gap-4 px-8 py-11 transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:border-white/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_0_1px_rgba(30,138,158,0.2)]"
+            style={{ animationDelay: `${i * 0.1}s` }}
+          >
+            {/* Top Border Hover Effect */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-teal-500 to-teal-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            <div className="w-14 h-14 flex items-center justify-center bg-gradient-to-br from-teal-800 to-teal-700 rounded-xl text-teal-300 shrink-0 border border-white/10">
+              <span className="w-[26px] h-[26px]">{f.icon}</span>
+            </div>
+            <h3 className="text-[19px] font-semibold text-white leading-tight mt-1">{f.title}</h3>
+            <p className="text-[15.5px] font-light leading-[1.75] text-white/50">{f.desc}</p>
           </div>
         ))}
       </div>
