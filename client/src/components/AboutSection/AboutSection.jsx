@@ -28,18 +28,18 @@ const AboutSection = () => {
           </div>
 
           {/* RIGHT IMAGE LAYOUT */}
-          <div className="w-full h-full flex justify-center lg:justify-end items-center gap-4 lg:gap-8 mt-12 lg:mt-0 py-10">
+          <div className="w-full h-full flex justify-center lg:justify-end items-center gap-3 sm:gap-4 lg:gap-8 mt-12 lg:mt-0 py-10 px-2 sm:px-0">
             {/* First Image (Smaller, Left, Lower) */}
             <img 
               src={about1}
               alt="Beautiful beach scenery"
-              className="w-[200px] h-[280px] lg:w-[260px] lg:h-[380px] object-cover shadow-[0_20px_40px_rgba(0,0,0,0.4)] translate-y-6 lg:translate-y-12"
+              className="w-[140px] h-[200px] sm:w-[200px] sm:h-[280px] lg:w-[260px] lg:h-[380px] object-cover shadow-[0_20px_40px_rgba(0,0,0,0.4)] translate-y-6 lg:translate-y-12"
             />
             {/* Second Image (Larger, Right, Higher) */}
             <img 
               src={about2}
               alt="Relaxing beach resort"
-              className="w-[240px] h-[340px] lg:w-[320px] lg:h-[460px] object-cover shadow-[0_20px_40px_rgba(0,0,0,0.4)] -translate-y-6 lg:-translate-y-12 z-10"
+              className="w-[150px] h-[220px] sm:w-[240px] sm:h-[340px] lg:w-[320px] lg:h-[460px] object-cover shadow-[0_20px_40px_rgba(0,0,0,0.4)] -translate-y-6 lg:-translate-y-12 z-10"
             />
           </div>
         </div>

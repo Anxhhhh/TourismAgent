@@ -49,8 +49,8 @@ const PlacesSection = () => {
             {places.map((place) => (
               <div 
                 key={place.title} 
-                className={`group relative overflow-hidden w-[260px] md:w-[280px] lg:w-[300px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] ${
-                  place.isCenter ? 'h-[380px] lg:h-[460px]' : 'h-[320px] lg:h-[380px]'
+                className={`group relative overflow-hidden w-full max-w-[280px] lg:max-w-[300px] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] ${
+                  place.isCenter ? 'h-[340px] md:h-[380px] lg:h-[460px]' : 'h-[320px] lg:h-[380px]'
                 }`}
               >
                 {/* Background Image */}
@@ -96,19 +96,19 @@ const PlacesSection = () => {
         </div>
 
         {/* SECTION 3: EXPERIENCE IMAGES */}
-        <div className="mt-20 lg:mt-32 w-full flex justify-center pb-12 lg:pb-24 pr-8 lg:pr-24">
+        <div className="mt-20 lg:mt-32 w-full flex justify-center pb-12 lg:pb-24 pr-6 sm:pr-8 lg:pr-24">
           <div className="relative">
             {/* Left Large Image */}
             <img 
               src={exp1}
               alt="Experience 1"
-              className="w-[320px] md:w-[500px] lg:w-[650px] h-[220px] md:h-[350px] lg:h-[450px] object-cover shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]"
+              className="w-[260px] sm:w-[320px] md:w-[500px] lg:w-[650px] h-[180px] sm:h-[220px] md:h-[350px] lg:h-[450px] object-cover shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]"
             />
             {/* Right overlapping small image */}
             <img 
               src={exp2}
               alt="Experience 2"
-              className="absolute -bottom-10 -right-10 md:-bottom-16 md:-right-20 lg:-bottom-24 lg:-right-32 w-[160px] md:w-[250px] lg:w-[320px] h-[240px] md:h-[380px] lg:h-[480px] object-cover shadow-[0_25px_50px_-12px_rgba(0,0,0,0.55)]"
+              className="absolute -bottom-8 -right-6 sm:-bottom-10 sm:-right-10 md:-bottom-16 md:-right-20 lg:-bottom-24 lg:-right-32 w-[130px] sm:w-[160px] md:w-[250px] lg:w-[320px] h-[190px] sm:h-[240px] md:h-[380px] lg:h-[480px] object-cover shadow-[0_25px_50px_-12px_rgba(0,0,0,0.55)]"
             />
           </div>
         </div>
