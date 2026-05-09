@@ -24,10 +24,11 @@ const AISection = () => {
       <div className="max-w-[1600px] mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-10 min-[900px]:gap-[clamp(40px,6vw,100px)] items-center">
           {/* Left content */}
+
           <div className="flex flex-col">
             <span className="section-label">AI Travel Agent</span>
             <h2 className="text-[clamp(34px,4.5vw,58px)] font-bold leading-[1.15] text-white mb-5 mt-2">
-              Your intelligent <br />
+              Your intelligentt <br />
               <span className="gradient-text">travel companion</span>
             </h2>
             <p className="text-[17px] font-light leading-[1.8] text-white/50 mb-8">
