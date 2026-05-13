@@ -6,6 +6,7 @@ import PlacesSection from './components/PlacesSection/PlacesSection'
 import FeaturesSection from './components/FeaturesSection/FeaturesSection'
 import DestinationsSection from './components/DestinationsSection/DestinationsSection'
 import AISection from './components/AISection/AISection'
+import VideoSection from './components/VideoSection/VideoSection'
 import Footer from './components/Footer/Footer'
 import ChatWidget from './components/ChatWidget/ChatWidget'
 
@@ -18,6 +19,7 @@ const App = () => {
         <AboutSection />
         <PlacesSection />
         <FeaturesSection />
+        <VideoSection />
         <DestinationsSection />
         <AISection />
       </main>
